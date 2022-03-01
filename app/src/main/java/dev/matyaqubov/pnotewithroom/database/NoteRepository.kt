@@ -20,4 +20,8 @@ class NoteRepository {
         noteDao.saveNote(note)
     }
 
+    fun removeNote(postion:Int){
+        noteDao.removeNote(postion)
+    }
+
 }

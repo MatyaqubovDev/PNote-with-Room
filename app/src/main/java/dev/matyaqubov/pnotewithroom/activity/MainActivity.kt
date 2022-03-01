@@ -39,6 +39,22 @@ class MainActivity : AppCompatActivity() {
             dialog.show()
         }
 
+        adapter.deleteDB={
+            var repository=NoteRepository(application)
+            val exacutor= Executors.newSingleThreadExecutor()
+            val handler= Handler(Looper.getMainLooper())
+            exacutor.execute{
+                repository.removeNote(it)
+                handler.post {
+                  // adapter.notifyDataSetChanged()
+                }
+            }
+        }
+        adapter.deleteListItem={
+            notes.removeAt(it)
+            adapter.notifyDataSetChanged()
+        }
+
     }
 
 

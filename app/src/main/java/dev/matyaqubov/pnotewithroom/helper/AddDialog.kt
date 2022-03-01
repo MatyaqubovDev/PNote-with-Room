@@ -52,8 +52,9 @@ class AddDialog(var a: Activity) : Dialog(a) {
         val handler= Handler(Looper.getMainLooper())
         exacutor.execute{
             repository.saveNote(note)
-            MainActivity.notes.add(note)
+            var newNote=repository.getNotes().last()
             handler.post {
+                MainActivity.notes.add(newNote)
                 MainActivity.adapter.notifyDataSetChanged()
             }
         }

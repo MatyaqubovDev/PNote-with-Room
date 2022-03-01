@@ -14,4 +14,7 @@ interface NoteDao {
 
     @Query("SELECT * FROM roomNote")
     fun getNotes():List<Note>
+
+    @Query("DELETE FROM roomNote WHERE id=:postion")
+    fun removeNote(postion:Int)
 }
