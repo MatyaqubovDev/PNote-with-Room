@@ -30,9 +30,4 @@ class MyApplication :Application() {
         }
 
     }
-    private fun noteExacutor(repository: NoteRepository,note:Note) {
-
-
-
-    }
 }
